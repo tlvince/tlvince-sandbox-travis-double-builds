@@ -8,8 +8,8 @@ node_js:
   - '8'
 after_success:
   - npm run travis-deploy-once "npm run semantic-release"
-# Trigger a push build on master and greenkeeper branches + PRs build on every branches
-# Avoid double build on PRs (See https://github.com/travis-ci/travis-ci/issues/1147)
+# Trigger a push build on master and PRs build on any branch
+# Avoid double build on PRs (see: https://github.com/travis-ci/travis-ci/issues/1147)
 branches:
   only:
     - master
