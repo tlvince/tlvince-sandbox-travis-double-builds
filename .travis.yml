@@ -14,3 +14,16 @@ branches:
   only:
     - master
     - /^v\d+\.\d+\.\d+$/
+jobs:
+  include:
+    - stage: test
+    - stage: deploy
+      # handled by test stage
+      install: skip
+      script: skip
+      deploy:
+        - provider: script
+          script: 'echo deploy'
+          on:
+            repo: tlvince/tlvince-sandbox-travis-double-builds
+            branch: master
